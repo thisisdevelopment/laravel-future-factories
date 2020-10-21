@@ -10,27 +10,11 @@
         }
     ],
     "require": {
-        "php": ">=7.2",
-        "illuminate/support": "6.x|7.x",
-        "illuminate/console": "6.x|7.x",
-        "ext-json": "*"
+        "php": ">=7.2"
     },
     "conflict": {
-        "laravel/framework": ">= 8.0.0",
+        "laravel/framework": "< 8.0.0",
         "laravel/legacy-factories": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "ThisIsDevelopment\\LaravelFutureFactories\\": "src/",
-            "Illuminate\\Database\\Eloquent\\Factories\\": "factories/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "ThisIsDevelopment\\LaravelFutureFactories\\ServiceProvider"
-            ]
-        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
