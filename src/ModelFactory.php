@@ -8,8 +8,6 @@ class ModelFactory extends \Illuminate\Database\Eloquent\Factory
 {
     public function load($path)
     {
-        $factory = $this;
-
         $declared = get_declared_classes();
         if (is_dir($path)) {
             foreach (Finder::create()->files()->name('*.php')->in($path) as $file) {
@@ -20,10 +18,10 @@ class ModelFactory extends \Illuminate\Database\Eloquent\Factory
         $loaded = array_diff(get_declared_classes(), $declared);
         foreach ($loaded as $cls) {
             if (is_subclass_of($cls, \Illuminate\Database\Eloquent\Factories\Factory::class)) {
-                $cls::initOld();
+                $cls::initOld($this);
             }
         }
 
-        return $factory;
+        return $this;
     }
 }

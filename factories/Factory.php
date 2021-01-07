@@ -43,12 +43,12 @@ abstract class Factory
 
     }
 
-    public static function initOld()
+    public static function initOld($factory)
     {
         $exclude = ['configure', 'definition', '__construct', 'modelName', 'initOld'];
 
         /** @var self $instance */
-        $instance = app(static::class);
+        $instance = app(static::class, ['factory' => $factory]);
         $instance->configure();
         $instance->factory->define($instance->modelName(), [$instance, 'definition']);
 
